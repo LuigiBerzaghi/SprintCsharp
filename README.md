@@ -57,7 +57,7 @@ http://localhost:5269/swagger
 
 ---
 
-### 🧪 Exemplo de JSON para POST
+### 🧪 Exemplo de JSON para POST/PUT
 
 ```json
 {
