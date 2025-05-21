@@ -11,7 +11,7 @@ API REST desenvolvida em **ASP.NET Core 8** com **Entity Framework Core** e banc
 - [Oracle Database](https://www.oracle.com/br/database/)
 - [Oracle.EntityFrameworkCore](https://www.nuget.org/packages/Oracle.EntityFrameworkCore)
 - [Swagger](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
-- Visual Studio / VS Code
+- [Visual Studio](https://visualstudio.microsoft.com/pt-br/)
 
 ---
 
