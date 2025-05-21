@@ -144,3 +144,4 @@ C:\Users\labsfiap\Desktop\Sprint1CSharp\obj\Debug\net8.0\refint\Sprint1CSharp.dl
 C:\Users\labsfiap\Desktop\Sprint1CSharp\obj\Debug\net8.0\Sprint1CSharp.pdb
 C:\Users\labsfiap\Desktop\Sprint1CSharp\obj\Debug\net8.0\Sprint1CSharp.genruntimeconfig.cache
 C:\Users\labsfiap\Desktop\Sprint1CSharp\obj\Debug\net8.0\ref\Sprint1CSharp.dll
+C:\Users\labsfiap\Desktop\Sprint1CSharp\obj\Debug\net8.0\Sprint1CSharp.sourcelink.json

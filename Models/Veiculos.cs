@@ -9,20 +9,20 @@ namespace Sprint1CSharp.Models
         public int Id { get; set; }
 
         [Required]
-        public string Modelo { get; set; }
+        public string? Modelo { get; set; }
 
         [Required]
-        public string Placa { get; set; }
+        public string? Placa { get; set; }
 
         [Required]
-        public string Cor { get; set; }
+        public string? Cor { get; set; }
 
         [Required]
-        public string Ano { get; set; }
+        public string? Ano { get; set; }
 
         public int ClienteId { get; set; }
 
         [ForeignKey("ClienteId")]
-        public Cliente Cliente { get; set; }
+        public Cliente? Cliente { get; set; }
     }
 }

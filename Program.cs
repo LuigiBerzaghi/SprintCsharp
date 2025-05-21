@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Sprint1CSharp.Data;
+using System.Text.Json.Serialization; // necessário para ReferenceHandler
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +11,12 @@ var connectionString = builder.Configuration.GetConnectionString("OracleConnecti
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseOracle(connectionString));
 
-// 🔧 Serviços essenciais da API
-builder.Services.AddControllers();
+// 🔧 Serviços essenciais da API + ciclo ignorado
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles
+    );
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
