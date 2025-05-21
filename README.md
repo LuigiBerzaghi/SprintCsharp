@@ -7,7 +7,7 @@ API desenvolvida em ASP.NET Core para gerenciar Clientes e seus Veículos, como 
 - ASP.NET Core 8
 - Entity Framework Core
 - Oracle DB
-- Swagger (OpenAPI)
+- Swagger 
 - Visual Studio / VS Code
 
 ## 🚀 Como executar
