@@ -36,7 +36,7 @@ dotnet ef database update
 dotnet run
 ```
 
-4. Acesse a aplicação:
+4. Acesse a aplicação através da URL que o terminal lhe retornar:
 ```bash
 https://localhost:5001/swagger
 ```
