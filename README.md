@@ -4,7 +4,7 @@ API desenvolvida em ASP.NET Core para gerenciar Clientes e seus Veículos, como 
 
 ## 📌 Tecnologias Utilizadas
 
-- ASP.NET Core 9
+- ASP.NET Core 8
 - Entity Framework Core
 - Oracle DB
 - Swagger (OpenAPI)
