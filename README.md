@@ -16,7 +16,7 @@ API desenvolvida em ASP.NET Core para gerenciar Clientes e seus Veículos, como 
 
 ```bash
 git clone https://github.com/LuigiBerzaghi/SprintCsharp.git
-cd Sprint1CSharp
+cd SprintCSharp
 ```
 
 2. Atualize as credenciais do banco Oracle no `appsettings.json`:
