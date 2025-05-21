@@ -18,7 +18,7 @@ git clone https://github.com/SEU_USUARIO/Sprint1CSharp.git
 cd Sprint1CSharp
 ```
 
-2. Clone o repositório:
+2. Atualize as credenciais:
 ```bash
 "ConnectionStrings": {
   "OracleConnection": "User Id=SEU_USUARIO;Password=SUA_SENHA;Data Source=oracle.fiap.com.br:1521/ORCL"
