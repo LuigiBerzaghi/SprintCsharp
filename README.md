@@ -38,7 +38,7 @@ dotnet run
 
 4. Acesse a aplicação através da URL que o terminal lhe retornar:
 ```bash
-https://localhost:5001/swagger
+http://localhost:5269/swagger
 ```
 
 
