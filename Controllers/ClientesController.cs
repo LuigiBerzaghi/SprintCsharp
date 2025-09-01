@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Sprint1CSharp.Data;
 using Sprint1CSharp.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Sprint1CSharp.Controllers
@@ -22,12 +23,19 @@ namespace Sprint1CSharp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes([FromQuery] string? nome)
         {
-            var query = _context.Clientes.Include(c => c.Veiculos).AsQueryable();
+            var query = _context.Clientes
+                .AsNoTracking()
+                .Include(c => c.Veiculos)
+                .AsQueryable();
 
-            if (!string.IsNullOrEmpty(nome))
-                query = query.Where(c => c.Nome != null && c.Nome.Contains(nome));
+            if (!string.IsNullOrWhiteSpace(nome))
+            {
+                var filtro = nome.ToUpper();
+                query = query.Where(c => c.Nome != null && c.Nome.ToUpper().Contains(filtro));
+            }
 
-            return Ok(await query.ToListAsync());
+            var lista = await query.ToListAsync();
+            return Ok(lista);
         }
 
         // GET: api/clientes/{id}
@@ -35,6 +43,7 @@ namespace Sprint1CSharp.Controllers
         public async Task<ActionResult<Cliente>> GetCliente(int id)
         {
             var cliente = await _context.Clientes
+                .AsNoTracking()
                 .Include(c => c.Veiculos)
                 .FirstOrDefaultAsync(c => c.Id == id);
 
@@ -49,6 +58,7 @@ namespace Sprint1CSharp.Controllers
         public async Task<ActionResult<IEnumerable<Veiculo>>> GetVeiculosDoCliente(int id)
         {
             var cliente = await _context.Clientes
+                .AsNoTracking()
                 .Include(c => c.Veiculos)
                 .FirstOrDefaultAsync(c => c.Id == id);
 
@@ -62,9 +72,12 @@ namespace Sprint1CSharp.Controllers
         [HttpGet("email/{email}")]
         public async Task<ActionResult<Cliente>> GetClientePorEmail(string email)
         {
+            var alvo = email.ToUpper();
+
             var cliente = await _context.Clientes
+                .AsNoTracking()
                 .Include(c => c.Veiculos)
-                .FirstOrDefaultAsync(c => c.Email != null && c.Email.ToLower() == email.ToLower());
+                .FirstOrDefaultAsync(c => c.Email != null && c.Email.ToUpper() == alvo);
 
             if (cliente == null)
                 return NotFound();
@@ -90,7 +103,7 @@ namespace Sprint1CSharp.Controllers
         public async Task<IActionResult> PutCliente(int id, Cliente cliente)
         {
             if (id != cliente.Id)
-                return BadRequest("ID da URL diferente do corpo da requisição");
+                return BadRequest("ID da URL diferente do corpo da requisiÃ§Ã£o");
 
             _context.Entry(cliente).State = EntityState.Modified;
 
@@ -100,10 +113,10 @@ namespace Sprint1CSharp.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!_context.Clientes.Any(e => e.Id == id))
+                if (!await _context.Clientes.AnyAsync(e => e.Id == id))
                     return NotFound();
-                else
-                    throw;
+
+                throw;
             }
 
             return NoContent();
